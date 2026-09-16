@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% set active = 'health' %}
+{% block title %}Health · Homelab{% endblock %}
+
+{% block content %}
+    <h1>Service status</h1>
+
+    <div class="status {{ 'ok' if status == '200' else 'fail' }}">
+        <span class="dot"></span>
+        <span class="code">{{ status }}</span>
+        <span class="text">{{ 'OK' if status == '200' else 'FAIL' }}</span>
+    </div>
+{% endblock %}

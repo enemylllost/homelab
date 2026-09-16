@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% set active = 'menu' %}
+{% block title %}Menu · Homelab{% endblock %}
+
+{% block content %}
+    <h1>{{ message }}</h1>
+
+    <ul class="list">
+        <li>
+            <span class="label">Nextcloud</span>
+            <a href="{{ nextcloud_url }}" target="_blank" rel="noopener">
+                {{ nextcloud_url }}
+            </a>
+        </li>
+        <li>
+            <span class="label">Music</span>
+            <a href="{{ music_url }}" target="_blank" rel="noopener">
+                {{ music_url }}
+            </a>
+        </li>
+    </ul>
+{% endblock %}

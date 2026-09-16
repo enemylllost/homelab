@@ -1,19 +1,23 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homelab</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
-<body>
-    <main>
-        <h1>{{ message }}</h1>
-        <nav>
-            <a href="/menu">Menu</a>
-            <a href="/health">Health</a>
-            <a href="/docs">API Docs</a>
-        </nav>
-    </main>
-</body>
-</html>
+{% extends "base.html" %}
+{% set active = 'home' %}
+{% block title %}Homelab{% endblock %}
+
+{% block content %}
+    <h1>{{ message }}</h1>
+    <p class="muted">Простой дашборд для сервисов.</p>
+
+    <div class="cards">
+        <a class="card" href="/menu/menu">
+            <h2>Menu</h2>
+            <p>Ссылки на сервисы</p>
+        </a>
+        <a class="card" href="/health/health">
+            <h2>Health</h2>
+            <p>Статус сервера</p>
+        </a>
+        <a class="card" href="/docs">
+            <h2>API Docs</h2>
+            <p>Swagger UI</p>
+        </a>
+    </div>
+{% endblock %}

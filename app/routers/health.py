@@ -6,7 +6,7 @@ router = APIRouter(prefix="/health", tags=["health"])
 templates = Jinja2Templates(directory="app/templates")
 
 
-@router.get("/health", response_class=HTMLResponse)
+@router.get("", response_class=HTMLResponse)
 async def health(request: Request):
     return templates.TemplateResponse(
         request=request,

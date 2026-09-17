@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
-from app.routers import health, menu
+from app.routers import health, menu, music
 
 app = FastAPI(title="Homelab")
 
@@ -12,7 +12,7 @@ templates = Jinja2Templates(directory="app/templates")
 
 app.include_router(menu.router)
 app.include_router(health.router)
-
+app.include_router(music.router)
 
 @app.get("/", response_class=HTMLResponse)
 async def root(request: Request):

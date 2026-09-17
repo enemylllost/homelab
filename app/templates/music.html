@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% set active = 'music' %}
+{% block title %}Music · Homelab{% endblock %}
+
+{% block content %}
+    <h1>{{ message }}</h1>
+
+    <form class="upload" action="/music/upload" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="audio/*" required>
+        <button type="submit">Загрузить</button>
+    </form>
+
+    {% if files %}
+        <ul class="playlist">
+            {% for f in files %}
+                <li>
+                    <div class="track">
+                        <span class="name">{{ f }}</span>
+                        <audio controls preload="none" src="/music/stream/{{ f }}"></audio>
+                    </div>
+                    <form action="/music/delete/{{ f }}" method="post"
+                          onsubmit="return confirm('Удалить {{ f }}?')">
+                        <button type="submit" class="danger">✕</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p class="muted">Пока ничего не загружено.</p>
+    {% endif %}
+{% endblock %}

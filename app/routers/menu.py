@@ -8,7 +8,7 @@ router = APIRouter(prefix="/menu", tags=["menu"])
 templates = Jinja2Templates(directory="app/templates")
 
 
-@router.get("/menu", response_class=HTMLResponse)
+@router.get("", response_class=HTMLResponse)
 async def menu(request: Request):
     return templates.TemplateResponse(
         request=request,
